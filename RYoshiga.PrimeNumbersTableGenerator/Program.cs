@@ -23,13 +23,14 @@ namespace RYoshiga.PrimeNumbersTableGenerator
             int.TryParse(input, out int n);
 
             var primeMultiplicationTable = GeneratePrimesTableFor(n);
-            
+            var formattedTable = _tableFormatter.Format(primeMultiplicationTable);
+
             Console.WriteLine("Enjoy your prime multiplication table:");
-            Console.Write(primeMultiplicationTable);
+            Console.Write(formattedTable);
             Console.ReadLine();
         }
 
-        private static string GeneratePrimesTableFor(int n)
+        private static MultiplicationTable GeneratePrimesTableFor(int n)
         {
             for (int i = 0; i < n; i++)
             {
@@ -37,8 +38,7 @@ namespace RYoshiga.PrimeNumbersTableGenerator
                 _multiplicationTableBuilder.Add(prime);
             }
 
-            var multiplicationTable = _multiplicationTableBuilder.Build();
-            return _tableFormatter.Format(multiplicationTable);
+            return _multiplicationTableBuilder.Build();
         }
     }
 }
