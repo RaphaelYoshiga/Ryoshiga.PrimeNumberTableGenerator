@@ -23,9 +23,9 @@ namespace RYoshiga.PrimeNumbersTableGenerator
             int.TryParse(input, out int n);
 
             var primeMultiplicationTable = GeneratePrimesTableFor(n);
-
+            
+            Console.WriteLine("Enjoy your prime multiplication table:");
             Console.Write(primeMultiplicationTable);
-            Console.WriteLine("Enjoy your table =)");
             Console.ReadLine();
         }
 
